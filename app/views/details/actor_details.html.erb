@@ -58,9 +58,6 @@
 
 <table border="1">
   <tr>
-    <th>
-      ID
-    </th>
 
     <th>
       Title
@@ -75,25 +72,32 @@
     </th>
 
     <th>
+      Character name
+    </th>
+
+    <th>
     </th>
   </tr>
 
-<%@filmography.each do |movie|%>
+<%@filmography.each do |character|%>
+<%movie = Movie.all.where(:id => character.movie_id).first%>
+
 <tr>
-    <td>
-      <%=movie.id%>  
-    </td>
 
     <td>
       <%=movie.title%>
     </td>
 
     <td>
-      <%=movie.year%>
+      <%=movie.year%>    
     </td>
 
     <td>
       <%=Director.all.where(:id=>movie.director_id).first.name%>
+    </td>
+
+    <td>
+      <%=character.name%>
     </td>
 
     <td>
